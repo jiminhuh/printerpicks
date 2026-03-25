@@ -1,0 +1,91 @@
+---
+import siteData from '../../data/site.json';
+import linksData from '../../data/affiliate-links.json';
+
+export function getStaticPaths() {
+  // Read affiliate links from the data file
+  let links: Array<{slug: string; url: string; tool: string}> = [];
+  try {
+    links = linksData;
+  } catch {
+    links = [];
+  }
+
+  return links.map((link) => ({
+    params: { slug: link.slug },
+    props: { url: link.url, tool: link.tool },
+  }));
+}
+
+const { url, tool } = Astro.props;
+const { slug } = Astro.params;
+
+// Supabase config for click tracking (runs client-side)
+const supabaseUrl = siteData.supabase_url || '';
+const supabaseKey = siteData.supabase_anon_key || '';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Redirecting to {tool}...</title>
+    <meta http-equiv="refresh" content={`1;url=${url}`} />
+    <style>
+      body {
+        font-family: -apple-system, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        background: #f8f9fa;
+        color: #64748b;
+      }
+      .redirect-box {
+        text-align: center;
+        padding: 2rem;
+      }
+      .redirect-box p {
+        margin: 0.5rem 0;
+      }
+      a {
+        color: #2563eb;
+      }
+      .spinner {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border: 2px solid #e2e8f0;
+        border-top-color: #2563eb;
+        border-radius: 50%;
+        animation: spin 0.6s linear infinite;
+      }
+      @keyframes spin { to { transform: rotate(360deg); } }
+    </style>
+  </head>
+  <body>
+    <div class="redirect-box">
+      <div class="spinner"></div>
+      <p>Redirecting to <strong>{tool}</strong>...</p>
+      <p><a href={url} id="manual-link">Click here if not redirected</a></p>
+    </div>
+    <script define:vars={{ url, slug, supabaseUrl, supabaseKey }}>
+      // Track click
+      if (supabaseUrl && supabaseKey) {
+        fetch(`${supabaseUrl}/rest/v1/rpc/increment_affiliate_click`, {
+          method: 'POST',
+          headers: {
+            'apikey': supabaseKey,
+            'Authorization': `Bearer ${supabaseKey}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ link_slug: slug }),
+        }).catch(() => {});
+      }
+      // Redirect immediately via JS (meta refresh is fallback)
+      window.location.href = url;
+    </script>
+  </body>
+</html>
