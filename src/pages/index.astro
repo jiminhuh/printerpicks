@@ -1,0 +1,211 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ComparisonTable from '../components/ComparisonTable.astro';
+import ToolCard from '../components/ToolCard.astro';
+import siteData from '../data/site.json';
+import tools from '../data/tools.json';
+
+const title = `${siteData.name} — ${siteData.description}`;
+const description = siteData.description;
+const toolCount = tools.length;
+const currentMonth = new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": siteData.name,
+  "description": siteData.description,
+  "numberOfItems": tools.length,
+  "itemListElement": tools.map((tool, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "name": tool.name,
+    "url": `${siteData.domain}/${tool.slug}`,
+  })),
+};
+---
+
+<BaseLayout title={title} description={description} schema={schema}>
+  <section class="hero">
+    <span class="hero-badge">Updated {currentMonth}</span>
+    <h1>Find the Best Invoicing Software for Your Business</h1>
+    <p class="hero-sub">We tested {toolCount} popular tools head-to-head so you don't have to. Real reviews, honest opinions, no BS.</p>
+    <div class="trust-row">
+      <div class="trust-item">
+        <span class="trust-num">{toolCount}</span>
+        <span class="trust-label">Tools tested</span>
+      </div>
+      <div class="trust-divider"></div>
+      <div class="trust-item">
+        <span class="trust-num">50+</span>
+        <span class="trust-label">Features compared</span>
+      </div>
+      <div class="trust-divider"></div>
+      <div class="trust-item">
+        <span class="trust-num">100%</span>
+        <span class="trust-label">Independent</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="overview">
+    <div class="section-header">
+      <h2>Quick Comparison</h2>
+      <p class="section-sub">See how all tools stack up at a glance.</p>
+    </div>
+    <ComparisonTable tools={tools} />
+  </section>
+
+  <section class="tools-grid">
+    <div class="section-header">
+      <h2>Detailed Overview</h2>
+      <p class="section-sub">In-depth look at each tool with pros, cons, and our recommendation.</p>
+    </div>
+    <div class="grid">
+      {tools.map((tool) => (
+        <ToolCard
+          name={tool.name}
+          slug={tool.slug}
+          description={tool.description}
+          summary={tool.summary}
+          website={tool.website}
+          rating={tool.rating}
+          pros={tool.pros}
+          cons={tool.cons}
+          affiliate_url={tool.affiliate_url}
+        />
+      ))}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    text-align: center;
+    padding: 3rem 2rem 2.5rem;
+    background: linear-gradient(135deg, #eff6ff 0%, #f0f0ff 50%, #faf5ff 100%);
+    border-radius: var(--radius);
+    margin-bottom: 1rem;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    background: white;
+    padding: 0.3rem 0.9rem;
+    border-radius: 100px;
+    border: 1px solid #dbeafe;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .hero h1 {
+    margin-top: 0;
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: #0f172a;
+    line-height: 1.15;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-sub {
+    font-size: 1.15rem;
+    color: #475569;
+    max-width: 550px;
+    margin: 0.75rem auto 1.5rem;
+    line-height: 1.6;
+  }
+
+  .trust-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .trust-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.15rem;
+  }
+
+  .trust-num {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--color-primary);
+  }
+
+  .trust-label {
+    font-size: 0.78rem;
+    color: #64748b;
+    font-weight: 500;
+  }
+
+  .trust-divider {
+    width: 1px;
+    height: 36px;
+    background: #cbd5e1;
+  }
+
+  .section-header {
+    margin-bottom: 0.5rem;
+  }
+
+  .section-header h2 {
+    margin-bottom: 0.2rem;
+    position: relative;
+    display: inline-block;
+  }
+
+  .section-header h2::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-primary), #6366f1);
+    border-radius: 2px;
+    margin-top: 0.3rem;
+  }
+
+  .section-sub {
+    font-size: 0.92rem;
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+
+  .overview {
+    margin-top: 2.5rem;
+  }
+
+  .tools-grid {
+    margin-top: 3.5rem;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.25rem;
+  }
+
+  @media (max-width: 480px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+      font-size: 1.85rem;
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+    }
+  }
+</style>
