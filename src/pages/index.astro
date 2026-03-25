@@ -28,8 +28,8 @@ const schema = {
 <BaseLayout title={title} description={description} schema={schema}>
   <section class="hero">
     <span class="hero-badge">Updated {currentMonth}</span>
-    <h1>Find the Best Invoicing Software for Your Business</h1>
-    <p class="hero-sub">We tested {toolCount} popular tools head-to-head so you don't have to. Real reviews, honest opinions, no BS.</p>
+    <h1>Find the Best {siteData.niche.charAt(0).toUpperCase() + siteData.niche.slice(1)} for Your Needs</h1>
+    <p class="hero-sub">We tested {toolCount} popular {siteData.niche.toLowerCase()} head-to-head so you don't have to. Real reviews, honest opinions, no BS.</p>
     <div class="trust-row">
       <div class="trust-item">
         <span class="trust-num">{toolCount}</span>
