@@ -1,0 +1,203 @@
+---
+interface Tool {
+  name: string;
+  slug: string;
+  rating: number;
+  description: string;
+  summary?: string;
+  website?: string;
+  affiliate_url?: string;
+}
+
+interface Props {
+  tools: Tool[];
+}
+
+const { tools } = Astro.props;
+---
+
+<div class="table-wrapper">
+  <table class="comparison-table">
+    <thead>
+      <tr>
+        <th>Tool</th>
+        <th>Rating</th>
+        <th>Summary</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {tools.map((tool, index) => (
+        <tr class={index % 2 === 1 ? 'row-alt' : ''}>
+          <td class="tool-name">
+            <div class="tool-identity">
+              <div class="tool-logo">
+                {tool.website ? (
+                  <img
+                    src={`https://www.google.com/s2/favicons?domain=${tool.website}&sz=64`}
+                    alt={`${tool.name} logo`}
+                    width="24"
+                    height="24"
+                    loading="lazy"
+                  />
+                ) : (
+                  <span class="logo-fallback-sm">{tool.name.charAt(0)}</span>
+                )}
+              </div>
+              <a href={`/${tool.slug}`}>{tool.name}</a>
+            </div>
+          </td>
+          <td class="tool-rating">
+            <div class="rating-cell">
+              <div class="rating-bar" title={`${tool.rating} out of 5`}>
+                <div class="rating-bar-fill" style={`width: ${(tool.rating / 5) * 100}%`}></div>
+              </div>
+              <span class="rating-num">{tool.rating}</span>
+            </div>
+          </td>
+          <td class="tool-summary">{tool.summary || tool.description}</td>
+          <td class="tool-cta">
+            {tool.affiliate_url && (
+              <a
+                href={tool.affiliate_url}
+                class="btn-cta"
+                target="_blank"
+                rel="noopener noreferrer nofollow sponsored"
+              >
+                Visit Site
+              </a>
+            )}
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<style>
+  .table-wrapper {
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .comparison-table {
+    min-width: 640px;
+    margin: 0;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+  }
+
+  .row-alt {
+    background-color: var(--color-surface);
+  }
+
+  .tool-name {
+    min-width: 160px;
+  }
+
+  .tool-identity {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .tool-logo {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tool-logo img {
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    object-fit: contain;
+  }
+
+  .logo-fallback-sm {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    background: linear-gradient(135deg, var(--color-primary), #6366f1);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tool-name a {
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .tool-rating {
+    white-space: nowrap;
+    min-width: 120px;
+  }
+
+  .rating-cell {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .rating-bar {
+    width: 64px;
+    height: 6px;
+    background-color: var(--color-border);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .rating-bar-fill {
+    height: 100%;
+    border-radius: 3px;
+    background: linear-gradient(90deg, var(--color-accent), #f97316);
+  }
+
+  .rating-num {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    font-weight: 600;
+    min-width: 2ch;
+  }
+
+  .tool-summary {
+    font-size: 0.88rem;
+    color: var(--color-text-secondary);
+    max-width: 340px;
+    line-height: 1.5;
+  }
+
+  .tool-cta {
+    text-align: right;
+  }
+
+  .btn-cta {
+    display: inline-block;
+    padding: 0.45rem 1.1rem;
+    background-color: var(--color-primary);
+    color: #fff;
+    border-radius: 8px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+  }
+
+  .btn-cta:hover {
+    background-color: var(--color-primary-hover);
+    color: #fff;
+    text-decoration: none;
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+  }
+</style>
