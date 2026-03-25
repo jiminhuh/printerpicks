@@ -1,0 +1,32 @@
+[
+  {
+    "slug": "bambu-lab-a1-mini",
+    "url": "https://www.amazon.com/s?k=bambu+lab+a1+mini&tag=invoicerank20-20",
+    "tool": "Bambu Lab A1 Mini"
+  },
+  {
+    "slug": "creality-ender-3-v3",
+    "url": "https://www.amazon.com/s?k=creality+ender+3+v3&tag=invoicerank20-20",
+    "tool": "Creality Ender-3 V3"
+  },
+  {
+    "slug": "anycubic-kobra-3",
+    "url": "https://www.amazon.com/s?k=anycubic+kobra+3&tag=invoicerank20-20",
+    "tool": "Anycubic Kobra 3"
+  },
+  {
+    "slug": "prusa-mk4s",
+    "url": "https://www.amazon.com/s?k=prusa+mk4&tag=invoicerank20-20",
+    "tool": "Prusa MK4S"
+  },
+  {
+    "slug": "elegoo-neptune-4-pro",
+    "url": "https://www.amazon.com/s?k=elegoo+neptune+4+pro&tag=invoicerank20-20",
+    "tool": "Elegoo Neptune 4 Pro"
+  },
+  {
+    "slug": "flashforge-adventurer-5m-pro",
+    "url": "https://www.amazon.com/s?k=flashforge+adventurer+5m+pro&tag=invoicerank20-20",
+    "tool": "FlashForge Adventurer 5M Pro"
+  }
+]
