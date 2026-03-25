@@ -1,0 +1,122 @@
+[
+  {
+    "name": "Bambu Lab A1 Mini",
+    "slug": "bambu-lab-a1-mini-review",
+    "description": "Best plug-and-play 3D printer for absolute beginners",
+    "summary": "If you want to unbox a 3D printer and start printing great stuff in under 15 minutes with zero tinkering, the A1 Mini is the one.",
+    "website": "bambulab.com",
+    "rating": 4.7,
+    "pros": [
+      "Prints perfectly out of the box",
+      "Auto bed leveling",
+      "Multicolor capable with AMS Lite",
+      "Silent operation"
+    ],
+    "cons": [
+      "Small build volume (180x180x180mm)",
+      "Proprietary ecosystem",
+      "Limited to PLA/PETG"
+    ],
+    "affiliate_url": "https://www.amazon.com/s?k=bambu+lab+a1+mini&tag=invoicerank20-20"
+  },
+  {
+    "name": "Creality Ender-3 V3",
+    "slug": "creality-ender-3-v3-review",
+    "description": "The classic beginner printer, now with auto-leveling",
+    "summary": "The Ender-3 is THE printer that got millions into 3D printing. The V3 finally adds auto-leveling and a better hotend while keeping the price low.",
+    "website": "creality.com",
+    "rating": 4.3,
+    "pros": [
+      "Huge community and support",
+      "Very affordable",
+      "Massive upgrade ecosystem",
+      "Open source firmware"
+    ],
+    "cons": [
+      "Requires some assembly",
+      "Print quality needs tuning",
+      "Louder than Bambu"
+    ],
+    "affiliate_url": "https://www.amazon.com/s?k=creality+ender+3+v3&tag=invoicerank20-20"
+  },
+  {
+    "name": "Anycubic Kobra 3",
+    "slug": "anycubic-kobra-3-review",
+    "description": "Budget multicolor printing with ACE system",
+    "summary": "If you want multicolor prints without paying Bambu prices, the Kobra 3 with ACE is the best budget option out there.",
+    "website": "anycubic.com",
+    "rating": 4.1,
+    "pros": [
+      "Multicolor via ACE system",
+      "Good price for features",
+      "Auto-leveling",
+      "Large build volume"
+    ],
+    "cons": [
+      "ACE system can jam",
+      "Software less polished than Bambu",
+      "Moderate noise"
+    ],
+    "affiliate_url": "https://www.amazon.com/s?k=anycubic+kobra+3&tag=invoicerank20-20"
+  },
+  {
+    "name": "Prusa MK4S",
+    "slug": "prusa-mk4s-review",
+    "description": "The reliability king for serious hobbyists",
+    "summary": "If you want a printer that just works, every single time, for years, and you do not mind paying more for it, the Prusa MK4S is the gold standard.",
+    "website": "prusa3d.com",
+    "rating": 4.5,
+    "pros": [
+      "Legendary reliability",
+      "Open source everything",
+      "Best support in the industry",
+      "Input shaping for speed"
+    ],
+    "cons": [
+      "More expensive than Chinese alternatives",
+      "Slower than Bambu at stock",
+      "Kit requires 4+ hours assembly"
+    ],
+    "affiliate_url": "https://www.amazon.com/s?k=prusa+mk4&tag=invoicerank20-20"
+  },
+  {
+    "name": "Elegoo Neptune 4 Pro",
+    "slug": "elegoo-neptune-4-pro-review",
+    "description": "Fast Klipper-based printer at a great price",
+    "summary": "If you want speed and do not mind a bit of setup, the Neptune 4 Pro gives you Klipper firmware performance at half the price of premium printers.",
+    "website": "elegoo.com",
+    "rating": 4.0,
+    "pros": [
+      "Klipper firmware (fast prints)",
+      "Great price to performance",
+      "Direct drive extruder",
+      "Linear rails"
+    ],
+    "cons": [
+      "Needs firmware updates out of box",
+      "Customer support is slow",
+      "Screen UI is basic"
+    ],
+    "affiliate_url": "https://www.amazon.com/s?k=elegoo+neptune+4+pro&tag=invoicerank20-20"
+  },
+  {
+    "name": "FlashForge Adventurer 5M Pro",
+    "slug": "flashforge-adventurer-5m-pro-review",
+    "description": "Enclosed printer for hassle-free ABS and PETG",
+    "summary": "If you need to print ABS, nylon, or other tricky materials without building an enclosure yourself, the Adventurer 5M Pro comes ready to go.",
+    "website": "flashforge.com",
+    "rating": 3.9,
+    "pros": [
+      "Fully enclosed for ABS/Nylon",
+      "Fast 600mm/s max speed",
+      "Built-in camera",
+      "HEPA air filtration"
+    ],
+    "cons": [
+      "Pricier than open-frame alternatives",
+      "Smaller community",
+      "Proprietary slicer preferred"
+    ],
+    "affiliate_url": "https://www.amazon.com/s?k=flashforge+adventurer+5m+pro&tag=invoicerank20-20"
+  }
+]
