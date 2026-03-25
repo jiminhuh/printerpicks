@@ -1,0 +1,161 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import siteData from '../data/site.json';
+
+const title = `About & Methodology — ${siteData.name}`;
+const description = `Learn about how ${siteData.name} reviews and compares tools. Our methodology, rating criteria, and editorial standards.`;
+---
+
+<BaseLayout title={title} description={description}>
+  <article class="about-page">
+    <h1>About {siteData.name}</h1>
+
+    <section>
+      <h2>Our Mission</h2>
+      <p>
+        We help you make informed decisions by providing honest, thorough comparisons
+        of the best tools in the {siteData.niche} space. Every review is based on
+        hands-on testing and real-world usage.
+      </p>
+    </section>
+
+    <section>
+      <h2>How We Review</h2>
+      <p>
+        Our review process is designed to be transparent and consistent. Here is how
+        we evaluate each tool:
+      </p>
+      <ol>
+        <li>
+          <strong>Hands-on testing.</strong> We sign up for each tool and use it in
+          realistic scenarios relevant to its intended audience.
+        </li>
+        <li>
+          <strong>Feature analysis.</strong> We document the core features, pricing tiers,
+          integrations, and any limitations.
+        </li>
+        <li>
+          <strong>Comparison.</strong> We compare tools head-to-head on criteria that matter
+          most: ease of use, value for money, feature depth, support quality, and reliability.
+        </li>
+        <li>
+          <strong>Rating.</strong> Each tool receives a rating from 1 to 5 based on
+          our weighted criteria. Ratings are updated when tools ship significant changes.
+        </li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Rating Criteria</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Criterion</th>
+            <th>Weight</th>
+            <th>What We Assess</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Ease of Use</td>
+            <td>25%</td>
+            <td>Onboarding, learning curve, UI design, documentation</td>
+          </tr>
+          <tr>
+            <td>Features</td>
+            <td>30%</td>
+            <td>Core functionality, integrations, customization options</td>
+          </tr>
+          <tr>
+            <td>Value</td>
+            <td>25%</td>
+            <td>Pricing relative to features, free tier, scalability of plans</td>
+          </tr>
+          <tr>
+            <td>Support</td>
+            <td>10%</td>
+            <td>Response time, channels available, knowledge base quality</td>
+          </tr>
+          <tr>
+            <td>Reliability</td>
+            <td>10%</td>
+            <td>Uptime, performance, data security, track record</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Editorial Independence</h2>
+      <p>
+        Our reviews are editorially independent. While we may earn affiliate commissions
+        when you purchase through our links, this never influences our ratings or
+        recommendations. We recommend tools we genuinely believe provide value, regardless
+        of whether they offer an affiliate program.
+      </p>
+    </section>
+
+    <section class="affiliate-section">
+      <h2>Affiliate Disclosure</h2>
+      <p>
+        {siteData.name} is supported through affiliate partnerships. When you click on
+        certain links on our site and make a purchase, we may receive a small commission
+        at no additional cost to you. This helps us maintain the site and continue
+        providing free, up-to-date reviews.
+      </p>
+      <p>
+        We are committed to transparency. Affiliate links are always marked and will
+        never influence our editorial judgment. If a tool is not worth recommending,
+        we will not recommend it regardless of financial incentive.
+      </p>
+    </section>
+
+    <section>
+      <h2>Contact</h2>
+      <p>
+        Have a question, correction, or suggestion? We appreciate your feedback.
+        Reach out and let us know how we can improve.
+      </p>
+    </section>
+
+    <nav class="page-nav">
+      <a href="/">&larr; Back to all tools</a>
+    </nav>
+  </article>
+</BaseLayout>
+
+<style>
+  .about-page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  .about-page section {
+    margin-bottom: 2rem;
+  }
+
+  .about-page ol {
+    padding-left: 1.25rem;
+  }
+
+  .about-page ol li {
+    margin-bottom: 0.75rem;
+  }
+
+  .affiliate-section {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+  }
+
+  .affiliate-section h2 {
+    margin-top: 0;
+  }
+
+  .page-nav {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border);
+  }
+</style>
