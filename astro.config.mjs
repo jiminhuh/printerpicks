@@ -1,11 +1,7 @@
-import { defineConfig } from 'astro/config';
-import sitemap from '@astrojs/sitemap';
+import { defineConfig } from "astro/config";
 
 export default defineConfig({
-  output: 'static',
-  site: 'https://example.com', // Agent replaces with actual domain
-  integrations: [sitemap()],
-  build: {
-    format: 'directory',
-  },
+  output: "static",
+  site: "https://printerpicks.vercel.app",
+  build: { format: "directory" },
 });
